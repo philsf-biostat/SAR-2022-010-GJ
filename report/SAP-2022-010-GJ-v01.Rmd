@@ -1,7 +1,7 @@
 ---
-title: "Analytical Plan for [title]"
+title: "Analytical Plan for Association between leadership commitment and telework satisfaction at NASA (2020): unweighted sex-adjusted stratified analysis"
 subtitle: 'DOCUMENT: SAP-2022-010-GJ-v01'
-author: '**From:** Felipe Figueiredo **To:** ___'
+author: '**From:** Felipe Figueiredo **To:** techsavvy32 (fiverr.com)'
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -37,7 +37,7 @@ panderOptions('table.split.table', 160)
 
 \newpage
 
-**Analytical Plan for [title]**
+**Analytical Plan for Association between leadership commitment and telework satisfaction at NASA (2020): unweighted sex-adjusted stratified analysis**
 
 **Document version**
 
@@ -54,36 +54,60 @@ kable(history)
 
 # Abbreviations
 
-- BMI: body mass index
 - CI: confidence interval
-- CV: coefficient of variation
-- d: Cohen's D effect size
-- HR: hazards ratio
-- IQR: interquartile range
-- IRR: incidence rate ratio
+- FEVS: Federal Employee Viewpoint Survey
+- OPM: U.S. Office of Personnel Management
 - OR: odds ratio
-- RR: risks ratio
-- SD: standard deviation
 
 # Context
 
+The Federal Employee Viewpoint Survey (FEVS) addressed leadership commitment, professional development, and telework satisfaction while accounting for gender (OPM, 2020).
+This analysis addresses a subset of the FEVS survey reflecting NASA employees.
+
 ## Objectives
+
+Quantify the association between leadership commitment and
+telework employee satisfaction
+at NASA from the 2020 Federal Employee Viewpoint Survey, disregarding the FEVS survey weights.
 
 ## Hypotheses
 
+There is a statistically significant correlation between leadership commitment and telework satisfaction among NASA’s employees in a telework environment after accounting for gender (men and women).
+
 ## Study design
+
+Case-control to assess prevalence from a complex-designed survey, where sampling weights where not used to account for sampling uncertainty.
 
 # Data
 
 ```{r cleaning, include=FALSE}
 source("scripts/input.R", encoding = 'UTF-8')
+dv <- "(q29 -- How satisfied are you with the Telework program in your agency?)"
+iv <- "(q58 -- Managers promote communication among different work units (for example, about projects, goals, needed resources))"
 ```
 
 ## Raw data
 
+Raw data was collected as a census of the eligible population (OPM, 2020), and statistical weighting was applied at the data collection to adjust for non-responses in in the census attempt.
+These survey weights (variable `postwt`) allow for the estimation of the association under study in the source population.
+The raw data was filtered to reflect only NASA survey respondents (where agency code equals `NN`).
+
+The raw data is expected to reflect a total employee population at NASA at `r N` employees but after cleaning procedures the observations in the analytical data represents a total of `r N_hat` NASA employees.
+Survey questions measured responses in a 5-point Likert scale between 1 (strongly disagree) and 5 (strongly agree).
+Some questions offered the option to choose "X" (Don't know) as the answer.
+These unknown answers were considered non-answers and treated as missing values (see section 5.1.4).
+
 ## Analytical dataset
 
 All variables in the analytical set were labeled according to the raw data provided and values were labeled according to the data dictionary for the preparation of production-quality results tables and figures.
+
+This analysis will focus on two questions from the FEVS survey, where the main interest is employee satisfaction
+`r dv`
+as the dependent variable and leadership commitment
+`r iv`
+as the independent variable.
+As per the data cleaning process, the dependent variable was renamed to `dv` and the independent variable was renamed to `iv` in the analytical dataset.
+Additionally, to calculate the OR the responses were categorized as binary responses, where agreement was aggregated from the "agree" and "strongly agree" responses, in variables `dv2` and `iv2`.
 
 After the cleaning process `r ncol(analytical)` variables were included in the analysis with `r nrow(analytical)` observations.
 Table 1 shows the structure of the analytical dataset.
@@ -101,14 +125,20 @@ The analytical dataset will be included in the private version of the report, an
 
 **Specification of outcome measures** (Zarin, 2011):
 
-1. (Domain)
-2. (Specific measurement)
-3. (Specific metric)
-4. (Method of aggregation)
+1. (Domain) Employee satisfaction
+2. (Specific measurement) Survey question
+3. (Specific metric) End value
+4. (Method of aggregation) Odds of participants that agree or strongly agree with survey question
 
 **Primary outcome**
 
+Odds of participants
+that are satisfied with telework
+at NASA from the 2020 Federal Employee Viewpoint Survey.
+
 ## Covariates
+
+The association will be stratified by the sex of survey respondents.
 
 # Statistical methods
 
@@ -119,8 +149,6 @@ The analytical dataset will be included in the private version of the report, an
 The epidemiological profile of the study participants will be described.
 Demographic
 (sex, age and BMI)
-and clinical variables
-<!-- ( [vars] ) -->
 will be described as
 mean (SD)
 <!-- median (IQR) -->
@@ -129,19 +157,18 @@ The distributions of participants' characteristics will be summarized in tables 
 
 ### Inferential analyses
 
-All comparisons between groups will be performed as univariate analyses.
-Continuous variables will be compared between groups with the
-independent t test with Welch correction.
-<!-- paired t test. -->
-<!-- Wilcoxon test. -->
+<!-- All comparisons between groups will be performed as univariate analyses. -->
 Differences in distribution of categorical variables will be assessed with the
-Fisher exact test.
-<!-- chi-square test. -->
-<!-- McNemar test. -->
+chi-square test with the adjustment of design effect for weighted survey data.
+The OR will be used as a measure of effect of the independent variable on the dependent variable.
 
-<!-- All inferential analyses will be performed in the statistical models (described in the next section). -->
+The stratification by sex will be used to assess if the effect changes across male and female strata.
+As a rule of thumb, a minimum change of 20% in the OR will be considered before concluding that there is an interaction between sex and the independent variable.
+The homogeneity of the OR across strata will be assessed with the Cochran-Mantel-Haenszel test.
 
 ### Statistical modeling
+
+N/A
 
 ### Missing data
 
@@ -153,8 +180,6 @@ All evaluations will be performed as complete case analyses.
 All analyses will be performed using the significance level of 5%.
 All significance hypothesis tests and confidence intervals computed will be
 two-tailed.
-<!-- left-tailed. -->
-<!-- right-tailed. -->
 
 ## Study size and Power
 
@@ -168,7 +193,8 @@ This analysis will be performed using statistical software `R` version `r getRve
 
 # References
 
-- **SAR-2022-010-GJ-v01** -- [title]
+- **SAR-2022-010-GJ-v01** -- Association between leadership commitment and telework satisfaction at NASA (2020): unweighted sex-adjusted stratified analysis
+- OPM (2020). 2020 Federal Employee Viewpoint Survey -- Technical report (<https://www.opm.gov/fevs/reports/technical-reports/>).
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
 - Zarin DA, et al. The ClinicalTrials.gov results database -- update and key issues. N Engl J Med 2011;364:852-60 (<https://doi.org/10.1056/NEJMsa1012065>).
 - Gamble C, et al. Guidelines for the Content of Statistical Analysis Plans in Clinical Trials. JAMA. 2017;318(23):2337–2343 (<https://doi.org/10.1001/jama.2017.18556>).
