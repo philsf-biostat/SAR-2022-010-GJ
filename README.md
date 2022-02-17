@@ -41,6 +41,10 @@ This analysis is part of a larger project and is supported by other analyses, li
 
 <https://philsf-biostat.github.io/SAR-2022-007-GJ/>
 
+**Association between leadership commitment and professional development at NASA (2020): unweighted sex-adjusted stratified analysis**
+
+<https://philsf-biostat.github.io/SAR-2022-011-GJ/>
+
 ## Portfolio
 
 This analysis is included in the consultant's portfolio.
