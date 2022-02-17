@@ -82,8 +82,6 @@ Case-control to assess prevalence from a complex-designed survey, where sampling
 
 ```{r cleaning, include=FALSE}
 source("scripts/input.R", encoding = 'UTF-8')
-dv <- "(q29 -- How satisfied are you with the Telework program in your agency?)"
-iv <- "(q58 -- Managers promote communication among different work units (for example, about projects, goals, needed resources))"
 ```
 
 ## Raw data
@@ -134,8 +132,6 @@ All variables in the analytical set were labeled according to the raw data provi
 analytical_mockup %>%
   pander(caption = "**Table 1** Analytical dataset structure after variable selection and cleaning.")
 ```
-
-The analytical dataset will be included in the private version of the report, and will be omitted from the public version of the report.
 
 # Study variables
 
@@ -245,6 +241,10 @@ This analysis is part of a larger project and is supported by other analyses, li
 **Association between leadership commitment and telework satisfaction at NASA (2020): sex-adjusted stratified analysis**
 
 <https://philsf-biostat.github.io/SAR-2022-007-GJ/>
+
+**Association between leadership commitment and professional development at NASA (2020): unweighted sex-adjusted stratified analysis**
+
+<https://philsf-biostat.github.io/SAR-2022-011-GJ/>
 
 ## Availability
 

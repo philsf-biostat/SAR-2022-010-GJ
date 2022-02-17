@@ -62,6 +62,9 @@ data.raw <- data.raw %>%
 
 # analytical dataset ------------------------------------------------------
 
+dv <- "(q58 -- How satisfied are you with the Telework program in your agency?)"
+iv <- "(q29 -- Managers promote communication among different work units (for example, about projects, goals, needed resources))"
+
 analytical <- data.raw %>%
   # select analytic variables
   mutate(
@@ -85,7 +88,7 @@ Nobs_final <- analytical %>% nrow
 
 # mockup of analytical dataset for SAP and public SAR
 analytical_mockup <- tibble( id = c( "1", "2", "3", "...", "N") ) %>%
-# analytical_mockup <- tibble( id = c( "1", "2", "3", "...", as.character(nrow(analytical)) ) ) %>%
+# analytical_mockup <- tibble( prontuario = c( "1", "2", "3", "...", as.character(Nobs_final) ) ) %>%
   left_join(analytical %>% head(0), by = "id") %>%
   mutate_all(as.character) %>%
   replace(is.na(.), "")
