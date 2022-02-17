@@ -80,6 +80,12 @@ This analysis was performed using statistical software `R` version `r getRversio
 
 ## Study population and follow up
 
+The raw database contained `r Nobs_orig` surveys, of which `r N_incomplete` incomplete cases were removed.
+Of the complete cases `r N_drop3` participants did not agree nor disagree with at least one of the survey questions.
+These did not meet the inclusion criteria and were also removed from the analysis.
+After the inclusion and exclusion criteria were applied the final number of surveys in the analysis is `r Nobs_final`.
+Table 1 shows the characteristics of the surveys included in the final analysis.
+
 ```{r tab_desc}
 tab_desc %>%
   as_kable(
