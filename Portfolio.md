@@ -1,10 +1,10 @@
 ---
 title: '[title]'
 date: ""
-permalink: /portfolio/SAR-yyyy-NNN/
+permalink: /portfolio/SAR-2022-010/
 redirect_from:
-  - /portfolio/SAR-yyyy-NNN-XX/
-  - /SAR-yyyy-NNN-XX/
+  - /portfolio/SAR-2022-010-GJ/
+  - /SAR-2022-010-GJ/
 categories:
   - case-control
   - cross-sectional
@@ -59,5 +59,5 @@ Statistical Analysis for PERSON (PLACE, yyyy)
 
 <!-- --- -->
 
-[sap]: /files/SAP-yyyy-NNN-XX-v01.pdf
-[sar]: /files/SAR-yyyy-NNN-XX-v01.pdf
+[sap]: /files/SAP-2022-010-GJ-v01.pdf
+[sar]: /files/SAR-2022-010-GJ-v01.pdf
