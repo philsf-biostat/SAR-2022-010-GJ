@@ -139,6 +139,11 @@ The analytical dataset will be included in the private version of the report, an
 
 # Study variables
 
+For this case-control study the exposures were defined as whether or not the survey respondent perceived high levels of leadership commitment, expressed by the agreement with the question.
+Surveys that did not perceive high levels of commitment (answer 1-2) were classified in the unexposed group and surveys.
+
+The cases and controls are defined in the primary outcome, described below.
+
 ## Primary and secondary outcomes
 
 **Specification of outcome measures** (Zarin, 2011):
@@ -156,7 +161,7 @@ at NASA from the 2020 Federal Employee Viewpoint Survey.
 
 ## Covariates
 
-The association will be stratified by the sex of survey respondents.
+The association between exposures and the outcome will be stratified by the sex of survey respondents.
 
 # Statistical methods
 
@@ -164,20 +169,13 @@ The association will be stratified by the sex of survey respondents.
 
 ### Descriptive analyses
 
-The epidemiological profile of the study participants will be described.
-Demographic
-(sex, age and BMI)
-will be described as
-mean (SD)
-<!-- median (IQR) -->
-or as counts and proportions (%), as appropriate.
+Survey characteristics will be described as counts and proportions (%).
 The distributions of participants' characteristics will be summarized in tables and visualized in exploratory plots.
 
 ### Inferential analyses
 
-<!-- All comparisons between groups will be performed as univariate analyses. -->
 Differences in distribution of categorical variables will be assessed with the
-chi-square test with the adjustment of design effect for weighted survey data.
+chi-square test without Yates correction.
 The OR will be used as a measure of effect of the independent variable on the dependent variable.
 
 The stratification by sex will be used to assess if the effect changes across male and female strata.
