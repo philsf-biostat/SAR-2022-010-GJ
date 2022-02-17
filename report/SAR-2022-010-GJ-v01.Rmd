@@ -1,5 +1,5 @@
 ---
-title: "[title]"
+title: "Association between leadership commitment and telework satisfaction at NASA (2020): unweighted sex-adjusted stratified analysis"
 subtitle: 'DOCUMENT: SAR-2022-010-GJ-v01'
 author: '**From:** Felipe Figueiredo **To:** ___'
 date: "`r Sys.Date()`"
@@ -37,7 +37,7 @@ panderOptions('table.split.table', 160)
 
 \newpage
 
-**[title]**
+**Association between leadership commitment and telework satisfaction at NASA (2020): unweighted sex-adjusted stratified analysis**
 
 **Document version**
 
@@ -113,7 +113,7 @@ tab_inf %>%
 
 # References
 
-- **SAP-2022-010-GJ-v01** -- Analytical Plan for [title]
+- **SAP-2022-010-GJ-v01** -- Analytical Plan for Association between leadership commitment and telework satisfaction at NASA (2020): unweighted sex-adjusted stratified analysis
 
 # Appendix
 
