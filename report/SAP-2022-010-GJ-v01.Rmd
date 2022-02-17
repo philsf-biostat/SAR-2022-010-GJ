@@ -89,7 +89,9 @@ iv <- "(q58 -- Managers promote communication among different work units (for ex
 ## Raw data
 
 Raw data was collected as a census of the eligible population (OPM, 2020), and statistical weighting was applied at the data collection to adjust for non-responses in in the census attempt.
-These survey weights (variable `postwt`) allow for the estimation of the association under study in the source population.
+These survey weights
+<!-- (variable `postwt`) -->
+allow for the estimation of the association under study in the source population, but this analysis will not adjust the estimates with the survey design effects (see Observations).
 The raw data was filtered to reflect only NASA survey respondents (where agency code equals `NN`).
 
 The original data base had
@@ -207,9 +209,24 @@ This analysis will be performed using statistical software `R` version `r getRve
 
 # Observations and limitations
 
+**Survey weights**
+
+Sometimes some sub-populations of the target population can be hard to find or are scarce.
+Complex survey designs allow for the study estimations be performed with over-sampling of these sub-populations.
+The FEVS survey used a statistical weighting to adjustment for the design effects of the survey and by involving them the previous analysis effectively simulated a census of the NASA employees perception of the workplace culture (see associated analysis **SAR-2022-007-GJ-v02**).
+Its large sample provided high levels of statistical power to detect even small differences in proportions.
+This is one reason that most p-values could be reasonably expected to be significant in that analysis.
+
+This unweighted analysis does not consider the survey weights, and as such, does not take into account the complex design of the FEVS survey.
+Although this choice allows for simpler methods to be used it may also lead to bias in the estimated odds ratios.
+
+Note that the previous analysis also used a different inclusion criteria where all survey responses were used.
+The results from this analysis might not be directly comparable to that one given this difference in methodological choices.
+
 # References
 
 - **SAR-2022-010-GJ-v01** -- Association between leadership commitment and telework satisfaction at NASA (2020): unweighted sex-adjusted stratified analysis
+- **SAR-2022-007-GJ-v02** -- Association between leadership commitment and telework satisfaction at NASA (2020): sex-adjusted stratified analysis
 - OPM (2020). 2020 Federal Employee Viewpoint Survey -- Technical report (<https://www.opm.gov/fevs/reports/technical-reports/>).
 <!-- - Cohen, J. (1988). Statistical power analysis for the behavioral sciences (2nd Ed.). New York: Routledge. -->
 - Zarin DA, et al. The ClinicalTrials.gov results database -- update and key issues. N Engl J Med 2011;364:852-60 (<https://doi.org/10.1056/NEJMsa1012065>).
@@ -218,6 +235,18 @@ This analysis will be performed using statistical software `R` version `r getRve
 # Appendix
 
 This document was elaborated following recommendations on the structure for Statistical Analysis Plans (Gamble, 2017) for better transparency and clarity.
+
+## Associated analyses
+
+This analysis is part of a larger project and is supported by other analyses, linked below.
+
+**Association between leadership commitment and professional development at NASA (2020): sex-adjusted stratified analysis**
+
+<https://philsf-biostat.github.io/SAR-2022-008-GJ/>
+
+**Association between leadership commitment and telework satisfaction at NASA (2020): sex-adjusted stratified analysis**
+
+<https://philsf-biostat.github.io/SAR-2022-007-GJ/>
 
 ## Availability
 
