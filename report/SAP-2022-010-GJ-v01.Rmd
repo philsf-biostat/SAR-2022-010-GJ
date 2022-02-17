@@ -92,10 +92,18 @@ Raw data was collected as a census of the eligible population (OPM, 2020), and s
 These survey weights (variable `postwt`) allow for the estimation of the association under study in the source population.
 The raw data was filtered to reflect only NASA survey respondents (where agency code equals `NN`).
 
-The raw data is expected to reflect a total employee population at NASA at `r N` employees but after cleaning procedures the observations in the analytical data represents a total of `r N_hat` NASA employees.
+The original data base had
+`r Nvar_orig`
+variables collected on
+`r Nobs_orig`
+observations.
+
 Survey questions measured responses in a 5-point Likert scale between 1 (strongly disagree) and 5 (strongly agree).
 Some questions offered the option to choose "X" (Don't know) as the answer.
 These unknown answers were considered non-answers and treated as missing values (see section 5.1.4).
+
+A total of `r N_incomplete` incomplete cases were removed.
+`r N_drop3` participants that did not meet the inclusion criteria of having answered the survey in agreement (4 or 5) or disagreement (1 or 2) to any of the questions were also removed from the analysis.
 
 ## Analytical dataset
 
@@ -109,7 +117,11 @@ as the independent variable.
 As per the data cleaning process, the dependent variable was renamed to `dv` and the independent variable was renamed to `iv` in the analytical dataset.
 Additionally, to calculate the OR the responses were categorized as binary responses, where agreement was aggregated from the "agree" and "strongly agree" responses, in variables `dv2` and `iv2`.
 
-After the cleaning process `r ncol(analytical)` variables were included in the analysis with `r nrow(analytical)` observations.
+After the cleaning process
+`r Nvar_final`
+variables were included in the analysis with
+`r Nobs_final`
+observations.
 Table 1 shows the structure of the analytical dataset.
 
 ```{r analytical data}
