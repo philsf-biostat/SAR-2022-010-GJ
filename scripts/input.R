@@ -62,8 +62,8 @@ data.raw <- data.raw %>%
 
 # analytical dataset ------------------------------------------------------
 
-dv <- "(q58 -- How satisfied are you with the Telework program in your agency?)"
-iv <- "(q29 -- Managers promote communication among different work units (for example, about projects, goals, needed resources))"
+dv <- "q58 -- How satisfied are you with the Telework program in your agency?"
+iv <- "q29 -- Managers promote communication among different work units (for example, about projects, goals, needed resources)"
 
 analytical <- data.raw %>%
   # select analytic variables
