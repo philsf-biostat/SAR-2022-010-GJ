@@ -1,5 +1,5 @@
 ---
-title: "[title]"
+title: "Association between leadership commitment and telework satisfaction at NASA (2020): unweighted sex-adjusted stratified analysis"
 subtitle: 'DOCUMENT: SAR-2022-010-GJ-v01'
 author: '**From:** Felipe Figueiredo **To:** ___'
 date: "`r Sys.Date()`"
@@ -37,7 +37,7 @@ panderOptions('table.split.table', 160)
 
 \newpage
 
-**[title]**
+**Association between leadership commitment and telework satisfaction at NASA (2020): unweighted sex-adjusted stratified analysis**
 
 **Document version**
 
@@ -80,6 +80,12 @@ This analysis was performed using statistical software `R` version `r getRversio
 
 ## Study population and follow up
 
+The raw database contained `r Nobs_orig` surveys, of which `r N_incomplete` incomplete cases were removed.
+Of the complete cases `r N_drop3` participants did not agree nor disagree with at least one of the survey questions.
+These did not meet the inclusion criteria and were also removed from the analysis.
+After the inclusion and exclusion criteria were applied the final number of surveys in the analysis is `r Nobs_final`.
+Table 1 shows the characteristics of the surveys included in the final analysis.
+
 ```{r tab_desc}
 tab_desc %>%
   as_kable(
@@ -107,7 +113,7 @@ tab_inf %>%
 
 # References
 
-- **SAP-2022-010-GJ-v01** -- Analytical Plan for [title]
+- **SAP-2022-010-GJ-v01** -- Analytical Plan for Association between leadership commitment and telework satisfaction at NASA (2020): unweighted sex-adjusted stratified analysis
 
 # Appendix
 
