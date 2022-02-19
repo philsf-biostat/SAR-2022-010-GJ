@@ -51,6 +51,11 @@ data.raw <- data.raw %>%
 
 # labels ------------------------------------------------------------------
 
+# factor labels
+responses <- c("Strongly disagree", "Disagree", "Agree", "Strongly Agree")
+data.raw <- data.raw %>%
+  mutate(across(starts_with("q"), ~ factor(.x, labels = responses)))
+
 data.raw <- data.raw %>%
   set_variable_labels(
     dsex = "Sex",
@@ -70,8 +75,8 @@ analytical <- data.raw %>%
   mutate(
     dv = q58, # DV
     iv = q29, # IV
-    dv2 = fct_collapse(dv, Disagreement=as.character(1:2), Agreement=as.character(4:5)),
-    iv2 = fct_collapse(iv, Disagreement=as.character(1:2), Agreement=as.character(4:5)),
+    dv2 = fct_collapse(dv, Disagreement=responses[1:2], Agreement=responses[3:4]),
+    iv2 = fct_collapse(iv, Disagreement=responses[1:2], Agreement=responses[3:4]),
   ) %>%
   select(
     id,
@@ -88,7 +93,7 @@ Nobs_final <- analytical %>% nrow
 
 # mockup of analytical dataset for SAP and public SAR
 analytical_mockup <- tibble( id = c( "1", "2", "3", "...", "N") ) %>%
-# analytical_mockup <- tibble( prontuario = c( "1", "2", "3", "...", as.character(Nobs_final) ) ) %>%
+# analytical_mockup <- tibble( id = c( "1", "2", "3", "...", as.character(Nobs_final) ) ) %>%
   left_join(analytical %>% head(0), by = "id") %>%
   mutate_all(as.character) %>%
   replace(is.na(.), "")
